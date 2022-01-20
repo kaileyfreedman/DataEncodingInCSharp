@@ -21,7 +21,19 @@ namespace DataEncodingInCSharp
             message = System.IO.File.ReadAllText("secrets/1.txt");
             Console.WriteLine($"The encrypted message is: '{message}'."); 
 
-            
+            decrypted = cipher.Decrypt(message);
+            Console.WriteLine($"The decryped message is: '{decrypted}'");
+            int shift;
+            shift = 1;
+            while (shift <= 10)
+            {
+                Cipher cipher3;
+                cipher3 = new Cipher(shift);
+                decrypted = cipher3.Decrypt(message);
+                Console.WriteLine($"The decrypted message is: '{decrypted}'");
+                shift += 1;
+            }
+
         }
     }
 }

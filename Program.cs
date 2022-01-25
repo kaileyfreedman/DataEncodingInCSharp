@@ -23,6 +23,14 @@ namespace DataEncodingInCSharp
 
             decrypted = cipher.Decrypt(message);
             Console.WriteLine($"The decryped message is: '{decrypted}'");
+            
+            string filePath = args[0];
+            Console.WriteLine($"Loading '{filePath}'.");
+
+            // string message;
+            message = System.IO.File.ReadAllText(filePath);
+            Console.WriteLine($"The encrypted message is: {message}");
+
             int shift;
             shift = 1;
             while (shift <= 10)
